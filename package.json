@@ -33,7 +33,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "utils",
+  "name": "@swnb/utils",
   "author": "async-rustacean",
   "module": "dist/utils.esm.js",
   "size-limit": [
