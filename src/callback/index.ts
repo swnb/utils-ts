@@ -1,0 +1,1 @@
+export { useCacheFn } from './cache';

@@ -1,0 +1,1 @@
+export { useSelectedPointermove } from './pointer';
