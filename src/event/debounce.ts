@@ -12,7 +12,7 @@ export function throttleWrapper<Args extends any[] = [], Ret extends any = any>(
 ): (...args: Args) => Ret | undefined {
   let lastEmitTime = getCurrentTime();
   return (...args) => {
-    let now = getCurrentTime();
+    const now = getCurrentTime();
     if (now - lastEmitTime >= maxEmitTimeGap) {
       lastEmitTime = now;
       return f(...args);
