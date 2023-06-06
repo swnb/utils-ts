@@ -17,15 +17,21 @@ export class AbortAblePromise<T> extends Promise<T> {
         abortedSignal?.removeEventListener('abort', onAbort);
       };
 
+      const clean = () => {
+        abortedSignal?.removeEventListener('abort', onAbort);
+      };
+
       abortedSignal?.addEventListener('abort', onAbort);
 
       executor(
         value => {
           if (isAborted) return;
+          clean();
           resolve(value);
         },
         reason => {
           if (isAborted) return;
+          clean();
           reject(reason);
         }
       );
