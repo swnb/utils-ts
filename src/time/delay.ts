@@ -3,3 +3,10 @@ export async function delay(ms: number) {
     setTimeout(res, ms);
   });
 }
+
+const defaultTimeoutError = new Error('timeout');
+
+export async function delayThrow(ms: number, error: any = defaultTimeoutError) {
+  await delay(ms);
+  throw error;
+}
