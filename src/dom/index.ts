@@ -1,1 +1,1 @@
-export { getDomTreeDepth } from './tree';
+export { getDomTreeDepth, getDomNodeCount } from './tree';
