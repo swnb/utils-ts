@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@swnb/event':
+    specifier: ^0.17.2
+    version: 0.17.2
   '@swnb/power-types':
     specifier: ^0.2.1
     version: 0.2.1
@@ -2059,6 +2062,12 @@ packages:
       '@size-limit/file': 8.2.4(size-limit@8.2.4)
       size-limit: 8.2.4
     dev: true
+
+  /@swnb/event@0.17.2:
+    resolution: {integrity: sha512-pY5mpy7N780ClI4vymqzc6rIU32jhKLQ2uOaA0pM34u8g2uHX8Udc+4esNccT6enVLqcnI+HHzGN7wZP4V11nA==}
+    dependencies:
+      typescript: 5.1.6
+    dev: false
 
   /@swnb/fabric@0.7.1(jest@25.5.4):
     resolution: {integrity: sha512-SQYNjqWt7SIRysTZtPpAKh/5H11Qa4szAu/T4ECcf0+a1mItlHApfTMsCECXwiUnn4vZ3HZpmtu/afEb2n7zGA==}
@@ -8527,6 +8536,12 @@ packages:
     engines: {node: '>=12.20'}
     hasBin: true
     dev: true
+
+  /typescript@5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: false
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

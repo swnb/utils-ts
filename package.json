@@ -59,6 +59,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@swnb/event": "^0.17.2",
     "@swnb/power-types": "^0.2.1"
   }
 }
