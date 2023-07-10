@@ -5,3 +5,4 @@ export * from './scheduler';
 export * from './concurrency';
 export * from './time';
 export * from './dom';
+export * from './locker';
