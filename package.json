@@ -16,7 +16,8 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "prepublish": "tsc",
-    "pub": "npm publish --access public"
+    "pub": "npm publish --access public",
+    "postpublish": "git push --follow-tags"
   },
   "peerDependencies": {
     "react": ">=16"
