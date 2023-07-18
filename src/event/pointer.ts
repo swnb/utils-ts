@@ -1,5 +1,5 @@
 import type { TypeArray } from '@swnb/power-types';
-import { useRef, useCallback, useEffect, useMemo } from 'react';
+import { useRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { useCacheFn } from '../callback/cache';
 
 export type Position = TypeArray<number, 2>;
@@ -141,4 +141,28 @@ export function useSelectedPointermove({
     }),
     [onPointerDown, onPointerLeave]
   );
+}
+
+export function useHover(ref: React.RefObject<HTMLElement>) {
+  const [isHover, setIsHover] = useState(false);
+  useEffect(() => {
+    const dom = ref.current;
+    if (!dom) {
+      return;
+    }
+    const onMouseEnter = () => {
+      setIsHover(true);
+    };
+    const onMouseLeave = () => {
+      setIsHover(false);
+    };
+
+    dom.addEventListener('mouseenter', onMouseEnter);
+    dom.addEventListener('mouseleave', onMouseLeave);
+    return () => {
+      dom.removeEventListener('mouseenter', onMouseEnter);
+      dom.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, []);
+  return isHover;
 }
