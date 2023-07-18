@@ -1,4 +1,4 @@
-export { useSelectedPointermove, useHover } from './pointer';
+export { useSelectedPointermove, useHover, useMouse } from './pointer';
 export {
   useDebounceWrapper,
   useThrottleWrapper,

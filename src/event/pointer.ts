@@ -1,6 +1,7 @@
 import type { TypeArray } from '@swnb/power-types';
 import { useRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { useCacheFn } from '../callback/cache';
+import { EventProxy } from '@swnb/event';
 
 export type Position = TypeArray<number, 2>;
 
@@ -165,4 +166,34 @@ export function useHover(ref: React.RefObject<HTMLElement>) {
     };
   }, []);
   return isHover;
+}
+
+export function useMouse(ref: React.RefObject<HTMLElement>) {
+  const [isHover, setIsHover] = useState(false);
+
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const dom = ref.current;
+    if (!dom) {
+      return;
+    }
+
+    return EventProxy.new(dom)
+      .on('pointerenter', () => {
+        setIsHover(true);
+      })
+      .on('pointerdown', () => {
+        setIsActive(true);
+      })
+      .on('pointerleave', () => {
+        setIsHover(false);
+        setIsActive(false);
+      })
+      .on('pointerup', () => {
+        setIsActive(false);
+      });
+  }, [ref]);
+
+  return useMemo(() => ({ isHover, isActive }), [isHover, isActive]);
 }

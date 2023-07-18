@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@swnb/event':
-    specifier: ^0.17.2
-    version: 0.17.2
+    specifier: ^0.18.0
+    version: 0.18.0
   '@swnb/power-types':
     specifier: ^0.2.1
     version: 0.2.1
@@ -2063,8 +2063,8 @@ packages:
       size-limit: 8.2.4
     dev: true
 
-  /@swnb/event@0.17.2:
-    resolution: {integrity: sha512-pY5mpy7N780ClI4vymqzc6rIU32jhKLQ2uOaA0pM34u8g2uHX8Udc+4esNccT6enVLqcnI+HHzGN7wZP4V11nA==}
+  /@swnb/event@0.18.0:
+    resolution: {integrity: sha512-4rwqiZSyc0EE9ZF/kE4RYK6BN6Hueczd/jNLXs/80nJFJNfTMy6jzBMES+l97OrAF+6E0Vftr8KBa+zL7yUwjg==}
     dependencies:
       typescript: 5.1.6
     dev: false
