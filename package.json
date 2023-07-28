@@ -2,6 +2,7 @@
   "version": "0.8.0",
   "license": "MIT",
   "main": "dist/index.js",
+  "type": "commonjs",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -35,7 +36,6 @@
   },
   "name": "@swnb/utils",
   "author": "async-rustacean",
-  "module": "dist/utils.esm.js",
   "size-limit": [
     {
       "path": "dist/utils.cjs.production.min.js",
