@@ -4,4 +4,6 @@ export {
   useThrottleWrapper,
   throttleWrapper,
   debounceWrapper,
+  PendingLocker,
+  usePendingLock,
 } from './debounce';

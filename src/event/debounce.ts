@@ -58,8 +58,47 @@ export function useDebounceWrapper<
 >(f: (...args: Args) => Ret, debounceTime: number): (...args: Args) => void {
   const cacheFn = useCacheFn(f);
 
-  return useMemo(() => debounceWrapper(cacheFn, debounceTime), [
-    cacheFn,
-    debounceTime,
-  ]);
+  return useMemo(
+    () => debounceWrapper(cacheFn, debounceTime),
+    [cacheFn, debounceTime]
+  );
+}
+
+export class PendingLocker<Args extends any[] = any[], Ret extends any = any> {
+  private isLoading = false;
+
+  private fn: (...args: Args) => Promise<Ret>;
+
+  constructor(fn: (...args: Args) => Promise<Ret>) {
+    this.fn = fn;
+  }
+
+  get loading() {
+    return this.isLoading;
+  }
+
+  static wrap(fn: (...args: any[]) => Promise<any>) {
+    const pendingLocker = new PendingLocker(fn);
+    return pendingLocker.call;
+  }
+
+  call = (...args: Args) => {
+    if (this.isLoading) return;
+
+    this.isLoading = true;
+    try {
+      const result = this.fn(...args);
+      return result;
+    } finally {
+      this.isLoading = false;
+    }
+  };
+}
+
+export function usePendingLock<
+  Args extends any[] = any[],
+  Ret extends any = any
+>(fn: (...args: Args) => Promise<Ret>) {
+  const cacheFn = useCacheFn(fn);
+  return useMemo(() => new PendingLocker(cacheFn).call, [cacheFn]);
 }
