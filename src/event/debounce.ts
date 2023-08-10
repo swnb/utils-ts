@@ -82,12 +82,12 @@ export class PendingLocker<Args extends any[] = any[], Ret extends any = any> {
     return pendingLocker.call;
   }
 
-  call = (...args: Args) => {
+  call = async (...args: Args) => {
     if (this.isLoading) return;
 
     this.isLoading = true;
     try {
-      const result = this.fn(...args);
+      const result = await this.fn(...args);
       return result;
     } finally {
       this.isLoading = false;
